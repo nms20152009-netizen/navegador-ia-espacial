@@ -3,21 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navegador IA Espacial</title>
+    <title>Navegador IA Espacial - Web Browser con AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Navegador IA Espacial</h1>
-        <div class="space-view">
-            <canvas id="spaceCanvas"></canvas>
+    <div class="browser-container">
+        <!-- Barra de navegación -->
+        <div class="navbar">
+            <div class="nav-controls">
+                <button id="backBtn" class="nav-btn" title="Atrás">←</button>
+                <button id="forwardBtn" class="nav-btn" title="Adelante">→</button>
+                <button id="refreshBtn" class="nav-btn" title="Recargar">⟳</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar en Google o escribir URL...">
+                <button id="searchBtn">🔍</button>
+            </div>
+            <button id="aiToggleBtn" class="ai-toggle">🤖 AI</button>
         </div>
-        <div class="controls">
-            <button id="generateBtn">Generar Galaxia</button>
-            <button id="clearBtn">Limpiar</button>
-        </div>
-        <div class="info">
-            <p>Haz clic en "Generar Galaxia" para explorar el espacio</p>
+
+        <!-- Área principal -->
+        <div class="main-content">
+            <!-- Frame de navegación -->
+            <div class="browser-frame" id="browserFrame">
+                <iframe id="webFrame" src="about:blank"></iframe>
+                <div class="welcome-screen" id="welcomeScreen">
+                    <h1>🚀 Navegador IA Espacial</h1>
+                    <p>Busca en Google o navega por la web con asistencia de IA</p>
+                    <div class="quick-links">
+                        <a href="#" data-url="https://www.google.com">Google</a>
+                        <a href="#" data-url="https://www.youtube.com">YouTube</a>
+                        <a href="#" data-url="https://www.wikipedia.org">Wikipedia</a>
+                        <a href="#" data-url="https://github.com">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel del Agente IA -->
+            <div class="ai-panel" id="aiPanel">
+                <div class="ai-header">
+                    <h3>🤖 Asistente IA</h3>
+                    <button id="aiCloseBtn">✕</button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <div class="ai-message assistant">
+                        <strong>Asistente:</strong> ¡Hola! Soy tu asistente de IA. Puedo ayudarte a:
+                        <ul>
+                            <li>Buscar información en la web</li>
+                            <li>Explicar conceptos</li>
+                            <li>Resumir contenido</li>
+                            <li>Responder preguntas</li>
+                        </ul>
+                        ¿En qué puedo ayudarte hoy?
+                    </div>
+                </div>
+                <div class="ai-input-area">
+                    <textarea id="aiInput" placeholder="Escribe tu pregunta aquí..."></textarea>
+                    <button id="aiSendBtn">Enviar</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
