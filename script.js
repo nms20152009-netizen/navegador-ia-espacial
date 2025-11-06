@@ -71,7 +71,8 @@ function loadUrl(url) {
     currentUrl = url;
     searchInput.value = url;
     welcomeScreen.style.display = 'none';
-    webFrame.src = url;
+    // Abrir en nueva pestaña en lugar de iframe
+    window.open(url, '_blank');
 }
 
 // Funciones del AI
